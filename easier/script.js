@@ -31,7 +31,7 @@ WARNING!!! WARNING!!!
 // Wrap the entire contents of script.js inside of an IIFE
 // See Lecture 52, part 2
 // (Note, Step 2 will be done in the SpeakHello.js file.)
-(function (window) {
+(function () {
 
 var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
@@ -40,7 +40,7 @@ var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula"
 // using the 'speak' method or either helloSpeaker's or byeSpeaker's
 // 'speak' method.
 // See Lecture 50, part 1
-for (var i in names) {
+for (var i = 0; i< names.length; i++) {
 
   // STEP 11: (NOTHING TO DO. ALREADY DONE FOR YOU)
   // Retrieve the first letter of the current name in the loop.
@@ -49,7 +49,7 @@ for (var i in names) {
   // string object's 'toLowerCase' method on the result so we can compare
   // to lower case character 'j' afterwards.
   // Look up these methods on Mozilla Developer Network web site if needed.
-  var firstLetter = ((names[i]).charAt(0)).toLowerCase();
+  var firstLetter = names[i].charAt(0).toLowerCase();
 
   // STEP 12: (NOTHING TO DO. ALREADY DONE FOR YOU)
   // Compare the 'firstLetter' retrieved in STEP 11 to lower case
@@ -57,10 +57,10 @@ for (var i in names) {
   // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
   // name in the loop.
   if (firstLetter === 'j') {
-    window.byeSpeaker.speak(names[i]);
+    byeSpeaker(names[i]);
   } else {
-    window.helloSpeaker.speak(names[i]);
+    helloSpeaker(names[i]);
   }
 }
 
-})(window);
+})();
